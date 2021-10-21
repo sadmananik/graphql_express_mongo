@@ -1,6 +1,0 @@
-{
-    "env": {
-        "MONGO_USER" : "mernShop",
-        "MONGO_PASSWORD" : "mernShop"
-    }
-}

@@ -3,16 +3,18 @@ const { graphqlHTTP } = require('express-graphql');
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+//custom middleWare
+const isAuth = require("./middleware/is-auth")
+
 const graphqlSchema = require("./graphQL/schema/index")
 const graphqlResolver = require("./graphQL/resolvers/index")
-
-
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
+app.use(isAuth);
 
 app.get('/hearbeat', (req, res) => {
     res.status(200);
